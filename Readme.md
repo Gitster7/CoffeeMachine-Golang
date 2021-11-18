@@ -115,13 +115,6 @@ docker-compose down
 ```
 More in README.md in DockerCompose folder
 
-## HELM chart
-
-CoffeeMachineChart is Kubernetes set of yamls with own rules how to deploy to local or external cluster. Edit HELM/CoffeeMachineChart/values.yaml for more options and run or delete release with:
-
-```
-helm install my-release .
-helm delete my-release
 ```
 
 ## author
