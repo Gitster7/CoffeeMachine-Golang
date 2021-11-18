@@ -1,0 +1,5 @@
+CoffeeMachine chart {{ .Chart.Version }} with app version {{ .Chart.AppVersion }} is now deployed! 
+
+Thank you for trying this CoffeeMachine.
+
+kOstovic

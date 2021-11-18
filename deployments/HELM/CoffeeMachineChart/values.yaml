@@ -1,0 +1,67 @@
+# Default values for CoffeeMachine.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: github.com/kostovic/coffeemachine
+  tag: "restapiv2.0"
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+podAnnotations: {}
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+deployment:
+  env:
+    GIN_MODE: "release"
+
+volumes:
+#EmptyDir shares a temporary directory that shares a pod's lifetime: saves data if restart occurs and can be used for log rotation folder or H2 database storage
+  useEmptyDir: false
+  emptyDirPath: ""
+#PVC has data, independant of container and needs to have volumeClaimName first which goes to PVName
+  usePVC: false
+  PVName: ""
+  mountPVCPath: ""
+  subPVCPath: ""
+
+service:
+#Use NodePort to expose at random port at 30000+ but not on localmachine name
+#or LoadBalancer to expose at this port at localmachine name
+  type: LoadBalancer
+  http_api_port: 3000
+
+#Doesn't work in local cluster like docker-desktop without nginx controller!
+ingress:
+  enabled: false
+  annotations: {}
+  #   kubernetes.io/ingress.class: "CoffeemMachine"
+  #   kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+#Recommended values in requests part after heavy usage and logs enabled (and saved to emptyDir in rotation)
+resources: 
+   limits:
+     cpu: 50m
+     memory: 128Mi
+   requests:
+     cpu: 10m
+     memory: 64Mi
+
+nodeSelector: {}

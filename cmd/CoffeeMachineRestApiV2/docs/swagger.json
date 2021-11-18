@@ -1,0 +1,606 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Swagger API for Golang Project CoffeeMachine.",
+        "title": "CoffeeMachine Swagger API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://github.com/kOstovic/coffeemachine/blob/master/LICENSE"
+        },
+        "version": "2.0"
+    },
+    "basePath": "/coffeemachine",
+    "paths": {
+        "/": {
+            "post": {
+                "description": "Initialize Machine based on given Ingredient and money json",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Initialize Machine based on given Ingredient and money json",
+                "parameters": [
+                    {
+                        "description": "init CoffeeMachine object",
+                        "name": "CoffeeMachine",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controllers.CoffeeMachine"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.CoffeeMachine"
+                        }
+                    },
+                    "400": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": ""
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/drinks": {
+            "get": {
+                "description": "Get all drinks available",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get all drinks available",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Drink"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Initialize new drink to consume on given Drink json",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Initialize new drink to consume on given Drink json",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "name of drink to create",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "description": "Add Drink object",
+                        "name": "Drink",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controllers.Drink"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Drink"
+                        }
+                    },
+                    "400": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": ""
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove drink from machine on given name",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Remove drink from machine on given name",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "name of drink to delete",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    "400": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": ""
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/drinks/consume": {
+            "get": {
+                "description": "Consumes Drink over",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Consumes Drink over",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Name of drink to consume",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Denomination Half to consume",
+                        "name": "Half",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Denomination One to consume",
+                        "name": "One",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Denomination Two to consume",
+                        "name": "Two",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Denomination Five to consume",
+                        "name": "Five",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Denomination Ten to consume",
+                        "name": "Ten",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Denomination"
+                        }
+                    },
+                    "400": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": ""
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/ingredients": {
+            "get": {
+                "description": "Get ingredient by name from query",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get ingredient by name from query",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "name of ingredient to get",
+                        "name": "name",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Ingredient"
+                        }
+                    },
+                    "400": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": ""
+                    }
+                }
+            },
+            "put": {
+                "description": "Update ingredients based on given Ingredient name and value in query or update all from body",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Update ingredients based on given Ingredient name and value in query or update all from body",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "name of ingredient to change",
+                        "name": "name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "value of ingredient to change",
+                        "name": "value",
+                        "in": "query"
+                    },
+                    {
+                        "description": "Update Ingredient object with Put option",
+                        "name": "ingredient",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.Ingredient"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Ingredient"
+                        }
+                    },
+                    "400": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": ""
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            },
+            "patch": {
+                "description": "Update ingredients based on given Ingredient json, update only given",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Update ingredients based on given Ingredient json, update only given",
+                "parameters": [
+                    {
+                        "description": "Update Ingredient object with Patch option",
+                        "name": "ingredient",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controllers.Ingredient"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Ingredient"
+                        }
+                    },
+                    "400": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": ""
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/money": {
+            "get": {
+                "description": "Get denominations by name from query",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get denominations by name from query",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "name of denomination to get",
+                        "name": "name",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Denomination"
+                        }
+                    },
+                    "400": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": ""
+                    }
+                }
+            },
+            "put": {
+                "description": "Update denomination based on given Denomination name and value in query or update all from body",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Update denomination based on given Denomination name and value in query or update all from body",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "name of denomination to change",
+                        "name": "name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "value of denomination to change",
+                        "name": "value",
+                        "in": "query"
+                    },
+                    {
+                        "description": "Update Denomination object with Put option",
+                        "name": "denomination",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.Denomination"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Denomination"
+                        }
+                    },
+                    "400": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": ""
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            },
+            "patch": {
+                "description": "Update ingredients based on given Denomination json, update only given",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Update ingredients based on given Denomination json, update only given",
+                "parameters": [
+                    {
+                        "description": "Update Denomination object with Patch option",
+                        "name": "denomination",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controllers.Denomination"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Ingredient"
+                        }
+                    },
+                    "400": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": ""
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "controllers.CoffeeMachine": {
+            "type": "object",
+            "properties": {
+                "Ingredients": {
+                    "$ref": "#/definitions/controllers.Ingredient"
+                },
+                "Money": {
+                    "$ref": "#/definitions/controllers.Denomination"
+                }
+            }
+        },
+        "controllers.Denomination": {
+            "type": "object",
+            "properties": {
+                "Five": {
+                    "type": "integer"
+                },
+                "Half": {
+                    "type": "integer"
+                },
+                "One": {
+                    "type": "integer"
+                },
+                "Ten": {
+                    "type": "integer"
+                },
+                "Two": {
+                    "type": "integer"
+                }
+            }
+        },
+        "controllers.Drink": {
+            "type": "object",
+            "properties": {
+                "CoffeeBeans": {
+                    "type": "integer"
+                },
+                "Cups": {
+                    "type": "integer"
+                },
+                "Milk": {
+                    "type": "integer"
+                },
+                "Money": {
+                    "type": "number"
+                },
+                "Sugar": {
+                    "type": "integer"
+                },
+                "TeaBeans": {
+                    "type": "integer"
+                },
+                "Water": {
+                    "type": "integer"
+                }
+            }
+        },
+        "controllers.Ingredient": {
+            "type": "object",
+            "properties": {
+                "CoffeeBeans": {
+                    "type": "integer"
+                },
+                "Cups": {
+                    "type": "integer"
+                },
+                "Milk": {
+                    "type": "integer"
+                },
+                "Sugar": {
+                    "type": "integer"
+                },
+                "TeaBeans": {
+                    "type": "integer"
+                },
+                "Water": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.Denomination": {
+            "type": "object",
+            "properties": {
+                "five": {
+                    "type": "integer"
+                },
+                "half": {
+                    "type": "integer"
+                },
+                "one": {
+                    "type": "integer"
+                },
+                "ten": {
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "number"
+                },
+                "two": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.Drink": {
+            "type": "object",
+            "properties": {
+                "coffeeBeans": {
+                    "type": "integer"
+                },
+                "cups": {
+                    "type": "integer"
+                },
+                "milk": {
+                    "type": "integer"
+                },
+                "money": {
+                    "type": "number"
+                },
+                "sugar": {
+                    "type": "integer"
+                },
+                "teaBeans": {
+                    "type": "integer"
+                },
+                "water": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.Ingredient": {
+            "type": "object",
+            "properties": {
+                "coffeeBeans": {
+                    "type": "integer"
+                },
+                "cups": {
+                    "type": "integer"
+                },
+                "milk": {
+                    "type": "integer"
+                },
+                "sugar": {
+                    "type": "integer"
+                },
+                "teaBeans": {
+                    "type": "integer"
+                },
+                "water": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

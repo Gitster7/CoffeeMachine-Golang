@@ -1,0 +1,403 @@
+basePath: /coffeemachine
+definitions:
+  controllers.CoffeeMachine:
+    properties:
+      Ingredients:
+        $ref: '#/definitions/controllers.Ingredient'
+      Money:
+        $ref: '#/definitions/controllers.Denomination'
+    type: object
+  controllers.Denomination:
+    properties:
+      Five:
+        type: integer
+      Half:
+        type: integer
+      One:
+        type: integer
+      Ten:
+        type: integer
+      Two:
+        type: integer
+    type: object
+  controllers.Drink:
+    properties:
+      CoffeeBeans:
+        type: integer
+      Cups:
+        type: integer
+      Milk:
+        type: integer
+      Money:
+        type: number
+      Sugar:
+        type: integer
+      TeaBeans:
+        type: integer
+      Water:
+        type: integer
+    type: object
+  controllers.Ingredient:
+    properties:
+      CoffeeBeans:
+        type: integer
+      Cups:
+        type: integer
+      Milk:
+        type: integer
+      Sugar:
+        type: integer
+      TeaBeans:
+        type: integer
+      Water:
+        type: integer
+    type: object
+  models.Denomination:
+    properties:
+      five:
+        type: integer
+      half:
+        type: integer
+      one:
+        type: integer
+      ten:
+        type: integer
+      total:
+        type: number
+      two:
+        type: integer
+    type: object
+  models.Drink:
+    properties:
+      coffeeBeans:
+        type: integer
+      cups:
+        type: integer
+      milk:
+        type: integer
+      money:
+        type: number
+      sugar:
+        type: integer
+      teaBeans:
+        type: integer
+      water:
+        type: integer
+    type: object
+  models.Ingredient:
+    properties:
+      coffeeBeans:
+        type: integer
+      cups:
+        type: integer
+      milk:
+        type: integer
+      sugar:
+        type: integer
+      teaBeans:
+        type: integer
+      water:
+        type: integer
+    type: object
+info:
+  contact:
+    name: API Support
+  description: Swagger API for Golang Project CoffeeMachine.
+  license:
+    name: Apache 2.0
+    url: https://github.com/kOstovic/coffeemachine/blob/master/LICENSE
+  termsOfService: http://swagger.io/terms/
+  title: CoffeeMachine Swagger API
+  version: "2.0"
+paths:
+  /:
+    post:
+      consumes:
+      - application/json
+      description: Initialize Machine based on given Ingredient and money json
+      parameters:
+      - description: init CoffeeMachine object
+        in: body
+        name: CoffeeMachine
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.CoffeeMachine'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.CoffeeMachine'
+        "400":
+          description: ""
+        "404":
+          description: ""
+        "500":
+          description: ""
+      summary: Initialize Machine based on given Ingredient and money json
+  /drinks:
+    delete:
+      description: Remove drink from machine on given name
+      parameters:
+      - description: name of drink to delete
+        in: query
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+        "404":
+          description: ""
+        "500":
+          description: ""
+      summary: Remove drink from machine on given name
+    get:
+      description: Get all drinks available
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Drink'
+            type: array
+      summary: Get all drinks available
+    post:
+      consumes:
+      - application/json
+      description: Initialize new drink to consume on given Drink json
+      parameters:
+      - description: name of drink to create
+        in: query
+        name: name
+        required: true
+        type: string
+      - description: Add Drink object
+        in: body
+        name: Drink
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.Drink'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Drink'
+        "400":
+          description: ""
+        "404":
+          description: ""
+        "500":
+          description: ""
+      summary: Initialize new drink to consume on given Drink json
+  /drinks/consume:
+    get:
+      description: Consumes Drink over
+      parameters:
+      - description: Name of drink to consume
+        in: query
+        name: name
+        required: true
+        type: string
+      - description: Denomination Half to consume
+        in: query
+        name: Half
+        type: string
+      - description: Denomination One to consume
+        in: query
+        name: One
+        type: string
+      - description: Denomination Two to consume
+        in: query
+        name: Two
+        type: string
+      - description: Denomination Five to consume
+        in: query
+        name: Five
+        type: string
+      - description: Denomination Ten to consume
+        in: query
+        name: Ten
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Denomination'
+        "400":
+          description: ""
+        "404":
+          description: ""
+        "500":
+          description: ""
+      summary: Consumes Drink over
+  /ingredients:
+    get:
+      description: Get ingredient by name from query
+      parameters:
+      - description: name of ingredient to get
+        in: query
+        name: name
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Ingredient'
+        "400":
+          description: ""
+        "404":
+          description: ""
+      summary: Get ingredient by name from query
+    patch:
+      consumes:
+      - application/json
+      description: Update ingredients based on given Ingredient json, update only
+        given
+      parameters:
+      - description: Update Ingredient object with Patch option
+        in: body
+        name: ingredient
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.Ingredient'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Ingredient'
+        "400":
+          description: ""
+        "404":
+          description: ""
+        "500":
+          description: ""
+      summary: Update ingredients based on given Ingredient json, update only given
+    put:
+      description: Update ingredients based on given Ingredient name and value in
+        query or update all from body
+      parameters:
+      - description: name of ingredient to change
+        in: query
+        name: name
+        type: string
+      - description: value of ingredient to change
+        in: query
+        name: value
+        type: integer
+      - description: Update Ingredient object with Put option
+        in: body
+        name: ingredient
+        schema:
+          $ref: '#/definitions/controllers.Ingredient'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Ingredient'
+        "400":
+          description: ""
+        "404":
+          description: ""
+        "500":
+          description: ""
+      summary: Update ingredients based on given Ingredient name and value in query
+        or update all from body
+  /money:
+    get:
+      description: Get denominations by name from query
+      parameters:
+      - description: name of denomination to get
+        in: query
+        name: name
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Denomination'
+        "400":
+          description: ""
+        "404":
+          description: ""
+      summary: Get denominations by name from query
+    patch:
+      consumes:
+      - application/json
+      description: Update ingredients based on given Denomination json, update only
+        given
+      parameters:
+      - description: Update Denomination object with Patch option
+        in: body
+        name: denomination
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.Denomination'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Ingredient'
+        "400":
+          description: ""
+        "404":
+          description: ""
+        "500":
+          description: ""
+      summary: Update ingredients based on given Denomination json, update only given
+    put:
+      description: Update denomination based on given Denomination name and value
+        in query or update all from body
+      parameters:
+      - description: name of denomination to change
+        in: query
+        name: name
+        type: string
+      - description: value of denomination to change
+        in: query
+        name: value
+        type: integer
+      - description: Update Denomination object with Put option
+        in: body
+        name: denomination
+        schema:
+          $ref: '#/definitions/controllers.Denomination'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Denomination'
+        "400":
+          description: ""
+        "404":
+          description: ""
+        "500":
+          description: ""
+      summary: Update denomination based on given Denomination name and value in query
+        or update all from body
+swagger: "2.0"

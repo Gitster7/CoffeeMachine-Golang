@@ -1,0 +1,912 @@
+{
+	"info": {
+		"_postman_id": "7bec783e-6e83-4275-aeae-65a2bcc18c01",
+		"name": "golang user api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET tea More http://localhost:3000/coffeemachine/drinks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea"
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/drinks?name=tea2&Ten=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"drinks"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "tea2"
+						},
+						{
+							"key": "Ten",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET tea Enough http://localhost:3000/coffeemachine/drinks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea"
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/drinks?name=tea2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"drinks"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "tea2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET tea notEnough http://localhost:3000/coffeemachine/drinks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea"
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/drinks?name=tea&half=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"drinks"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "tea"
+						},
+						{
+							"key": "half",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET tea noParams http://localhost:3000/coffeemachine/drinks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea"
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/drinks?name=tea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"drinks"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "tea"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET foo http://localhost:3000/coffeemachine/drinks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "coffee"
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/drinks?name=foo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"drinks"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "foo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET all http://localhost:3000/coffeemachine/drinks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "coffee",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"value": "Milk",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/drinks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"drinks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST tea http://localhost:3000/coffeemachine/drinks coffee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "name",
+						"value": "tea",
+						"type": "text"
+					},
+					{
+						"key": "ingredient",
+						"value": "Milk",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Water\":10,\"Milk\":2,\"Sugar\":4,\"CoffeeBeans\":0,\"TeaBeans\":5,\"Cups\":1,\"Money\":4}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/drinks?name=tea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"drinks"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "tea"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Half http://localhost:3000/coffeemachine/money",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Half\":1}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/money",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"money"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Half http://localhost:3000/coffeemachine/money",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/money?name=Half&value=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"money"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Half"
+						},
+						{
+							"key": "value",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT foo http://localhost:3000/coffeemachine/money Copy",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/money?name=foo&value=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"money"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "foo"
+						},
+						{
+							"key": "value",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT money http://localhost:3000/coffeemachine/money",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk"
+					},
+					{
+						"key": "value",
+						"type": "text",
+						"value": "20"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Half\":5,\"One\":10,\"Two\":10,\"Five\":10,\"Ten\":10}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/money",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"money"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET money Half http://localhost:3000/coffeemachine/money",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "coffee",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"value": "Milk",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/money?name=Half",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"money"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Half"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET money all http://localhost:3000/coffeemachine/money",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "coffee",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"value": "Milk",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/money",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"money"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Cups http://localhost:3000/coffeemachine/ingredients",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Cups\":2}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/ingredients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"ingredients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Milk http://localhost:3000/coffeemachine/ingredients",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/ingredients?name=Milk&value=333",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"ingredients"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Milk"
+						},
+						{
+							"key": "value",
+							"value": "333"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT foo ingredients http://localhost:3000/coffeemachine/ingredients",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/ingredients?name=foo&value=333",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"ingredients"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "foo"
+						},
+						{
+							"key": "value",
+							"value": "333"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT http://localhost:3000/coffeemachine/ingredients",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"value": "tea",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"value": "Milk",
+						"type": "text"
+					},
+					{
+						"key": "value",
+						"value": "20",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Water\":1000,\"Milk\":200,\"Sugar\":400,\"CoffeeBeans\":100,\"TeaBeans\":500,\"Cups\":50}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/ingredients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"ingredients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ingredients Milk http://localhost:3000/coffeemachine/ingredients  milk",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/ingredients?name=Milk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"ingredients"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Milk"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET upperCASE Ingredients http://localhost:3000/coffeemachine/ingredients",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/Ingredients/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						"Ingredients",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET all http://localhost:3000/coffeemachine/ingredients",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3002/coffeemachine/ingredients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"coffeemachine",
+						"ingredients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST initialize http://localhost:3000/coffeemachine/ingredients",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "name",
+						"type": "text",
+						"value": "tea",
+						"disabled": true
+					},
+					{
+						"key": "ingredient",
+						"type": "text",
+						"value": "Milk",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"Ingredients\": {\"Water\":1000,\"Milk\":200,\"Sugar\":400,\"CoffeeBeans\":100,\"TeaBeans\":500,\"Cups\":50},\r\n\"Money\": {\"Half\":11, \"One\":10, \"Two\":10, \"Five\":10, \"Ten\":10}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/coffeemachine/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coffeemachine",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
