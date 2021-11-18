@@ -115,8 +115,7 @@ docker-compose down
 ```
 More in README.md in DockerCompose folder
 
-```
-```
+
 ## author
 
 Omkar Vatsa
