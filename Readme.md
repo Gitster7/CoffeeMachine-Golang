@@ -124,4 +124,6 @@ helm install my-release .
 helm delete my-release
 ```
 
-More in README.md in HELM/CoffeeMachineChart folder
+## author
+
+Omkar Vatsa
